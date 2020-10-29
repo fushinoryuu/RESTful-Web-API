@@ -33,10 +33,12 @@ namespace TodoApi.Controllers
             return _valuesService.GetValueByIndex(index);
         }
 
-        // GET api/values/something
+        // GET api/values/some
         [HttpGet("{filter}")]
         public ActionResult<string[]> Get(string filter)
         {
+            // WHEN GIVEN "SOME" IT SHOULD RETURN AN ARRAY OF TWO THINGS
+            // FIX THE BUG
             return _valuesService.GetValuesByFilter(filter);
         }
 
