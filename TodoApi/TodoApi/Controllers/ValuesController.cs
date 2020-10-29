@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Lamar;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using TodoApi.Interfaces;
+using TodoApi.Utils;
 
 namespace TodoApi.Controllers
 {
@@ -7,18 +10,27 @@ namespace TodoApi.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly IValuesService _valuesService;
+
+        public ValuesController()
+        {
+            var container = new Container(new Registry());
+
+            _valuesService = container.GetInstance<IValuesService>();
+        }
+
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new[] { "value1", "value2" };
+            return _valuesService.GetAllValues();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return _valuesService.GetValueById(id);
         }
 
         // POST api/values

@@ -12,5 +12,10 @@ namespace TodoApi.Services
         {
             return "value";
         }
+
+        public string[] GetAllValues()
+        {
+            return new[] { "value1", "value2" };
+        }
     }
 }
