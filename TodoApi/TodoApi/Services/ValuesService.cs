@@ -4,18 +4,21 @@ namespace TodoApi.Services
 {
     public class ValuesService : IValuesService
     {
-        public ValuesService()
+        private readonly IValuesRepository _valuesRepository;
+
+        public ValuesService(IValuesRepository valuesRepository)
         {
+            _valuesRepository = valuesRepository;
         }
 
         public string GetValueById(int id)
         {
-            return "value";
+            return _valuesRepository.GetValueById(id);
         }
 
         public string[] GetAllValues()
         {
-            return new[] { "value1", "value2" };
+            return _valuesRepository.GetAllValues();
         }
     }
 }

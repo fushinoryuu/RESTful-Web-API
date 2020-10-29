@@ -3,5 +3,7 @@
     public interface IValuesRepository
     {
         string GetValueById(int id);
+
+        string[] GetAllValues();
     }
 }
