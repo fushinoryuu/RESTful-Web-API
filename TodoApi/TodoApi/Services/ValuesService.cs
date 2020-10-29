@@ -1,6 +1,8 @@
-﻿namespace TodoApi.Services
+﻿using TodoApi.Interfaces;
+
+namespace TodoApi.Services
 {
-    public class ValuesService
+    public class ValuesService : IValuesService
     {
         public ValuesService()
         {
