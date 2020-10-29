@@ -10,7 +10,7 @@ namespace TodoApi.Repositories
 
         public ValuesRepository()
         {
-            _valuesList = new List<string> { "something", "something else" };
+            _valuesList = new List<string> { "some", "something", "everything" };
         }
 
         public string GetValueByIndex(int id)
