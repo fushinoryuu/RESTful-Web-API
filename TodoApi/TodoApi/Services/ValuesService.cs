@@ -11,9 +11,9 @@ namespace TodoApi.Services
             _valuesRepository = valuesRepository;
         }
 
-        public string GetValueById(int id)
+        public string GetValueByIndex(int index)
         {
-            return _valuesRepository.GetValueById(id);
+            return _valuesRepository.GetValueByIndex(index);
         }
 
         public string[] GetAllValues()

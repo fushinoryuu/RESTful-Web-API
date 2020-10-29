@@ -2,7 +2,7 @@
 {
     public interface IValuesService
     {
-        string GetValueById(int id);
+        string GetValueByIndex(int index);
 
         string[] GetAllValues();
     }

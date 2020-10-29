@@ -1,4 +1,5 @@
-﻿using Lamar;
+﻿using System;
+using Lamar;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using TodoApi.Interfaces;
@@ -27,10 +28,10 @@ namespace TodoApi.Controllers
         }
 
         // GET api/values/5
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        [HttpGet("{index}")]
+        public ActionResult<string> Get(int index)
         {
-            return _valuesService.GetValueById(id);
+            return _valuesService.GetValueByIndex(index);
         }
 
         // POST api/values

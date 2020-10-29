@@ -1,17 +1,31 @@
-﻿using TodoApi.Interfaces;
+﻿using System.Collections.Generic;
+using System.Linq;
+using TodoApi.Interfaces;
 
 namespace TodoApi.Repositories
 {
     public class ValuesRepository : IValuesRepository
     {
-        public string GetValueById(int id)
+        private readonly IList<string> _valuesList;
+
+        public ValuesRepository()
         {
-            return "value";
+            _valuesList = new List<string> { "something", "something else" };
+        }
+
+        public string GetValueByIndex(int id)
+        {
+            if (id < _valuesList.Count)
+            {
+                return _valuesList[id - 1];
+            }
+
+            return null;
         }
 
         public string[] GetAllValues()
         {
-            return new[] { "value1", "value2" };
+            return _valuesList.ToArray();
         }
     }
 }
